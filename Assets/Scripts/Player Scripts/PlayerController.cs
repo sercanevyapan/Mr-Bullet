@@ -35,12 +35,7 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
         }
-    }
-
-    private void Shoot()
-    {
-        lineRenderer.enabled = false;
-    }
+    } 
 
     private void Aim()
     {
@@ -52,5 +47,20 @@ public class PlayerController : MonoBehaviour
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, firePos1.position);
         lineRenderer.SetPosition(1, firePos2.position);
+    }
+
+
+    private void Shoot()
+    {
+        lineRenderer.enabled = false;
+
+        GameObject b = Instantiate(bullet, firePos1.position, Quaternion.identity);
+
+        if (transform.localScale.x > 0)
+            b.GetComponent<Rigidbody2D>().AddForce(firePos1.right * bulletSpeed, ForceMode2D.Impulse);
+        else
+            b.GetComponent<Rigidbody2D>().AddForce(-firePos1.right * bulletSpeed, ForceMode2D.Impulse);
+
+        Destroy(b, 2);
     }
 }
