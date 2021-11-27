@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
         firePos2 = GameObject.Find("FirePos2").transform;
         lineRenderer = GameObject.Find("Gun").GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
+
     }
 
     // Update is called once per frame
