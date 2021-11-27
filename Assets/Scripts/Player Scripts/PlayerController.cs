@@ -8,28 +8,27 @@ public class PlayerController : MonoBehaviour
 
     public float rotateSpeed = 100, bulletSpeed = 100;
 
-    private Transform handPos;
-    private Transform firePos1, firePos2;
+    public Transform handPos;
+    public Transform firePos1, firePos2;
 
-    private LineRenderer lineRenderer;
+    public LineRenderer lineRenderer;
 
     public GameObject bullet;
 
     void Awake()
     {
-        handPos = GameObject.Find("LeftArm").transform;
-        firePos1 = GameObject.Find("FirePos1").transform;
-        firePos2 = GameObject.Find("FirePos2").transform;
-        lineRenderer = GameObject.Find("Gun").GetComponent<LineRenderer>();
+ 
         lineRenderer.enabled = false;
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+
         if (Input.GetMouseButton(0))
         {
+
             Aim();
         }
         if (Input.GetMouseButtonUp(0))
