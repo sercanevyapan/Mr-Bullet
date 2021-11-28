@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - Box
+  - BoxPlank
+  - Plank
+  - Tnt
   layers:
   - Default
   - TransparentFX
@@ -48,9 +52,12 @@ TagManager:
   - name: Ground
     uniqueID: 3983595209
     locked: 0
-  - name: Player
-    uniqueID: 4240645621
+  - name: Env
+    uniqueID: 3170365243
     locked: 0
   - name: Enemy
     uniqueID: 2445412359
+    locked: 0
+  - name: Player
+    uniqueID: 4240645621
     locked: 0
