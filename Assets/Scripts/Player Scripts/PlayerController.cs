@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public float rotateSpeed = 100, bulletSpeed = 100;
+    public int ammo = 4;
 
     public Transform handPos;
     public Transform firePos1, firePos2;
@@ -33,7 +34,12 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
-            Shoot();
+            if(ammo>0)
+                Shoot();
+            else
+            {
+                lineRenderer.enabled = false;
+            }
         }
     } 
 
@@ -60,6 +66,8 @@ public class PlayerController : MonoBehaviour
             b.GetComponent<Rigidbody2D>().AddForce(firePos1.right * bulletSpeed, ForceMode2D.Impulse);
         else
             b.GetComponent<Rigidbody2D>().AddForce(-firePos1.right * bulletSpeed, ForceMode2D.Impulse);
+
+        ammo--;
 
         Destroy(b, 2);
     }

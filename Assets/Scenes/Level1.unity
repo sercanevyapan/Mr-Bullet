@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 100
-  bulletSpeed: 20
+  bulletSpeed: 17
   handPos: {fileID: 596364023}
   firePos1: {fileID: 1650128250}
   firePos2: {fileID: 1960364000}

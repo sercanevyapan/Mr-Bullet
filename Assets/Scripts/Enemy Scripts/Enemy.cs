@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     {
         gameObject.tag = "Untagged";
 
+        FindObjectOfType<GameManager>().CheckEnemyCount();
+
         foreach (Transform obj in transform)
         {
             obj.GetComponent<Rigidbody2D>().gravityScale = 1;
