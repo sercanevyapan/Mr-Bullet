@@ -9,6 +9,7 @@ TagManager:
   - BoxPlank
   - Plank
   - Tnt
+  - Ground
   layers:
   - Default
   - TransparentFX
