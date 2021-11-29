@@ -14,12 +14,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject blackBullet, goldenBullet;
 
-    private GameObject gameOverPanel;
+   
 
     void Awake()
     {
-        gameOverPanel = GameObject.Find("GameOverPanel");
-        gameOverPanel.SetActive(false);
+    
+
 
         FindObjectOfType<PlayerController>().ammo = blackBullets + goldenBullets;
 
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         if(!gameOver && FindObjectOfType<PlayerController>().ammo <=0 && enemycount > 0 && GameObject.FindGameObjectsWithTag("Bullet").Length <=0)
         {
             gameOver = true;
-            gameOverPanel.SetActive(true);
+            GameUI.instance.GameOverScreen();
         }
 
     }
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
         if(enemycount <= 0)
         {
-             
+            GameUI.instance.WinScreen();
         }
     }
 
