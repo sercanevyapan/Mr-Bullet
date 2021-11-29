@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bullet;
 
+    public GameObject crosshair;
+
     void Awake()
     {
- 
+        crosshair.SetActive(false);
         lineRenderer.enabled = false;
 
     }
@@ -26,21 +29,34 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (Input.GetMouseButton(0))
+        if (!IsMouseOverUI())
         {
-
-            Aim();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            if(ammo>0)
-                Shoot();
-            else
+            if (Input.GetMouseButton(0))
             {
-                lineRenderer.enabled = false;
+
+                Aim();
+        
             }
+            if (Input.GetMouseButtonUp(0))
+            {
+               
+                if (ammo > 0)
+                {
+                    Shoot();
+                  
+                }
+                  
+                else
+                {
+                    lineRenderer.enabled = false;
+                    crosshair.SetActive(false);
+                }
+
+               
+            }
+        
         }
+        
     } 
 
     private void Aim()
@@ -53,11 +69,15 @@ public class PlayerController : MonoBehaviour
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, firePos1.position);
         lineRenderer.SetPosition(1, firePos2.position);
+
+        crosshair.SetActive(true);
+        crosshair.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + (Vector3.forward * 10);
     }
 
 
     private void Shoot()
     {
+        crosshair.SetActive(false);
         lineRenderer.enabled = false;
 
         GameObject b = Instantiate(bullet, firePos1.position, Quaternion.identity);
@@ -68,7 +88,14 @@ public class PlayerController : MonoBehaviour
             b.GetComponent<Rigidbody2D>().AddForce(-firePos1.right * bulletSpeed, ForceMode2D.Impulse);
 
         ammo--;
+        FindObjectOfType<GameManager>().CheckBullets();
 
         Destroy(b, 2);
+    }
+
+
+    bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }
