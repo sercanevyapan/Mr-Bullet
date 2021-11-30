@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject crosshair;
 
+    public AudioClip gunShot;
+
     void Awake()
     {
         crosshair.SetActive(false);
@@ -89,6 +91,8 @@ public class PlayerController : MonoBehaviour
 
         ammo--;
         FindObjectOfType<GameManager>().CheckBullets();
+        SoundManager.instance.PlaySoundFX(gunShot,0.3f);
+
 
         Destroy(b, 2);
     }

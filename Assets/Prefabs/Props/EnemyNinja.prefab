@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 1280953952}
   m_Layer: 0
   m_Name: EnemyNinja
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -985,6 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd600512040c44d4b950a40c5410d75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death: {fileID: 8300000, guid: db945ab8b2f172644b83a3a8761f76a7, type: 3}
 --- !u!1 &5116471531624218089
 GameObject:
   m_ObjectHideFlags: 0

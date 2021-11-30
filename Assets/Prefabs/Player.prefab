@@ -141,6 +141,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 4114713953490042187}
   bullet: {fileID: 1749754497579479807, guid: d9892df0303c62c45beca543331195af, type: 3}
   crosshair: {fileID: 4114713952769309149}
+  gunShot: {fileID: 8300000, guid: 0e61a87382973744b8cbb9e8b81e6f89, type: 3}
 --- !u!1 &4114713953259299814
 GameObject:
   m_ObjectHideFlags: 0

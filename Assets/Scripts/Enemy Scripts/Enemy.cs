@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public AudioClip death;
 
     void Death()
     {
         gameObject.tag = "Untagged";
 
         FindObjectOfType<GameManager>().CheckEnemyCount();
+        SoundManager.instance.PlaySoundFX(death, 0.75f);
 
         foreach (Transform obj in transform)
         {

@@ -251,3 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ea67e846748554fa5356ff94a5c369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxHit: {fileID: 8300000, guid: 1d2c3778d0b43854f8433de91a8d05e7, type: 3}
+  plankHit: {fileID: 8300000, guid: 58ffa35648c15834482f6762ad04b18c, type: 3}
+  groundHit: {fileID: 8300000, guid: bb3cfa17063f01849947e9262eedd4a0, type: 3}
+  explodeHit: {fileID: 8300000, guid: 48bed512f1b4e304ea3e0f31bdc4cbf0, type: 3}
